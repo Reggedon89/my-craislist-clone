@@ -12,16 +12,8 @@ export default props => {
   return (
     <Provider store={store}>
       <Router>
-        <div className="page-wrapper">
-          <div className="search-area">
-            <Route exact path="/" component={SearchArea} />
-          </div>
-          <div className="categories">
-            <Route path="/" component={Home} />
-          </div>
-          <div className="city-list">
-            <Route path="/" component={Citylist} />
-          </div>
+        <div>
+          <Route path="/" component={Home} />
         </div>
       </Router>
     </Provider>

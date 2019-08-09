@@ -1,139 +1,41 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import {
-  actionCatagory,
-  getSubCategories
-} from "../actions/craigslist.actions";
-
+import { actionCatagory } from "../actions/craigslist.actions";
+import SearchArea from "./Searcharea";
+import Citylist from "./Citylist";
 export default props => {
-  const mainCatagories = useSelector(appState => appState.parentCatagory);
-  const community = useSelector(appState => appState.community);
-  const housing = useSelector(appState => appState.housing);
-  const job = useSelector(appState => appState.job);
-  const services = useSelector(appState => appState.services);
-  const forSale = useSelector(appState => appState.forSale);
-  const personals = useSelector(appState => appState.personals);
-  const gigs = useSelector(appState => appState.gigs);
-  const resumes = useSelector(appState => appState.resumes);
-  console.log(community);
+  const catagory = useSelector(appState => appState.categories);
+
   useEffect(() => {
     actionCatagory();
-    getSubCategories();
   }, []);
+
   return (
     <div className="home-wrapper">
-      <h1>Hello</h1>
-      <ul>
-        {mainCatagories.map(item => {
-          switch (item.name) {
-            case "community":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {community.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            case "housing":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {housing.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            case "jobs":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {job.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            case "services":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {services.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            case "forSale":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {forSale.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            case "personals":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {personals.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            case "gigs":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {gigs.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-            case "resumes":
-              return (
-                <div key={item.name}>
-                  <h1>{item.name}</h1>
-                  {resumes.map(sub => {
-                    return (
-                      <Link to={sub.name} key={sub.name}>
-                        {sub.name}
-                      </Link>
-                    );
-                  })}
-                </div>
-              );
-          }
-        })}
-      </ul>
+      <SearchArea />
+      <div>
+        <div className="city-name">
+          <h1>las vegas</h1>
+        </div>
+        <div className="last-wrapper">
+          {catagory.map(item => (
+            <div key={item.name} className="main-cat">
+              <div className="main-cat-wrapper">
+                <h3>{item.name}</h3>
+              </div>
+              <div>
+                {item.subcat.map(sub => (
+                  <div className="sub-cat" key={sub.id}>
+                    <Link to="/">{sub.name}</Link>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <Citylist />
     </div>
   );
 };

@@ -11,4 +11,150 @@ html {
 .page-wrapper {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
+}
+
+/* Search area CSS */
+
+#mainWrapper {
+    width: 340px;
+    height: 100%;
+    display: flex;
+
+}
+
+#leftSideBar {
+    width: 75%;
+    border: 1px solid black;
+    height: 100%;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(244, 244, 244);
+    font-weight: bold;
+
+}
+
+
+#leftSideBar ul {
+    list-style: none;
+    text-align: center;
+    margin-left: -7%;
+
+}
+
+#leftSideBar ul li {
+    margin-bottom: 5%;
+}
+
+#leftSideBar ul li a {
+    text-decoration: none;
+}
+
+#leftSideBar ul li a:hover {
+    color: purple;
+    text-decoration: underline;
+}
+
+
+#leftSideBar #title {
+    text-align: center;
+    text-transform: lowercase;
+    text-decoration: none;
+    color: blue;
+    font-size: 30px;
+    margin-left: 7%;
+}
+
+#leftSideBar #title:hover {
+    color: purple;
+    text-decoration: underline;
+}
+
+#search {
+    width: 87%;
+    text-align: center;
+    margin-left: 7%;
+    margin-bottom: 5%;
+}
+
+#calender {
+    font-size: 10px;
+    height: 20%;
+    width: 220px;
+    margin-left: 7%;
+    margin-bottom: 10%;
+}
+
+
+.linksDiv ul {
+    list-style: none;
+}
+
+/* Home component styling */
+
+.home-wrapper {
+    margin: auto;
+    display: flex;
+    width: 1300px;
+    justify-content: space-between;
+    /* margin-right: 25%; */
+}
+
+.city-name {
+    width: 100%;
+    height: 50px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: rgb(244, 244, 244)
+}
+
+.city-name h1 {
+    margin-top: -.001%;
+}
+
+.main-cat {}
+
+.main-cat-wrapper {
+    text-align: center;
+    background-color: rgb(244, 244, 244)
+}
+
+.main-cat-wrapper:hover h3:hover {
+    background-color: white;
+    color: purple;
+    cursor: pointer;
+}
+
+.main-cat-wrapper h3 {
+    color: blue;
+    position: relative;
+    bottom: 50%;
+
+}
+
+.sub-cat {
+    height: 100%;
+    width: 100%;
+    /* display: flex;
+    flex-direction: column; */
+
+}
+
+.last-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 800px;
+    width: 800px;
+}
+
+/* City list style */
+.city-list {
+    border: 1px solid black;
+
+}
+
+.s {
+    list-style: none;
 }
