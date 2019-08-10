@@ -1,5 +1,6 @@
 const initialState = {
-  categories: []
+  categories: [],
+  listings: []
   // community: [],
   // housing: [],
   // job: [],
@@ -26,7 +27,8 @@ export default function(state = initialState, action) {
     //     gigs: action.gigs,
     //     resumes: action.resumes
     //   };
-
+    case "LISTINGS":
+      return { ...state, listings: action.payload };
     default:
       return state;
   }

@@ -7,15 +7,18 @@ import "normalize.css/normalize.css";
 import "../styles/App.css";
 import { Provider } from "react-redux";
 import store from "../store";
+import ListingPage from "./ListingPage";
+import { subCat } from "./Home";
 
 export default props => {
   return (
-    <Provider store={store}>
-      <Router>
-        <div>
-          <Route path="/" component={Home} />
+    <Router>
+      <Provider store={store}>
+        <div className="page-wrapper">
+          <Route exact path="/" component={Home} />
+          <Route path={"/listingpage/:slug"} component={ListingPage} />
         </div>
-      </Router>
-    </Provider>
+      </Provider>
+    </Router>
   );
 };

@@ -9,9 +9,10 @@ html {
 }
 
 .page-wrapper {
-    display: flex;
+
+    /* display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    width: 100%; */
 }
 
 /* Search area CSS */
@@ -92,9 +93,10 @@ html {
 }
 
 /* Home component styling */
-
+/*  look into using grid to get things looking right */
 .home-wrapper {
-    margin: auto;
+
+    margin: 20px 20px 0 -50px;
     display: flex;
     width: 1300px;
     justify-content: space-between;
@@ -113,7 +115,9 @@ html {
     margin-top: -.001%;
 }
 
-.main-cat {}
+.main-cat {
+    margin: 10px;
+}
 
 .main-cat-wrapper {
     text-align: center;
@@ -136,9 +140,15 @@ html {
 .sub-cat {
     height: 100%;
     width: 100%;
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+}
 
+.sub-cat a {
+    color: blue;
+    text-decoration: none;
+    border-bottom: 1px solid lightgray;
+    font-size: 14px;
 }
 
 .last-wrapper {
@@ -152,9 +162,14 @@ html {
 /* City list style */
 .city-list {
     border: 1px solid black;
+    background-color: rgb(244, 244, 244)
+}
 
+.city-list h6 {
+    text-align: center;
 }
 
 .s {
     list-style: none;
+    margin-bottom: 5px;
 }

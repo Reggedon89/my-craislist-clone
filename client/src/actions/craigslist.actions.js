@@ -9,6 +9,14 @@ export function actionCatagory() {
     });
   });
 }
+export function matchListings(slug) {
+  axios.get("/api/listings/" + slug).then(resp => {
+    store.dispatch({
+      type: "LISTINGS",
+      payload: resp.data
+    });
+  });
+}
 
 // export function getSubCategories() {
 //   const community = [];

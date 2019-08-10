@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { actionCatagory } from "../actions/craigslist.actions";
 import SearchArea from "./Searcharea";
 import Citylist from "./Citylist";
+
 export default props => {
   const catagory = useSelector(appState => appState.categories);
 
@@ -27,7 +28,7 @@ export default props => {
               <div>
                 {item.subcat.map(sub => (
                   <div className="sub-cat" key={sub.id}>
-                    <Link to="/">{sub.name}</Link>
+                    <Link to={"/listingpage/" + sub.slug}>{sub.name}</Link>
                   </div>
                 ))}
               </div>
