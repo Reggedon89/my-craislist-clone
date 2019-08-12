@@ -40,14 +40,13 @@ router.get("/catagory", (req, res, next) => {
 });
 
 router.get("/listings", (req, res, next) => {
-  const sql = `select p.title, p.description, p.id, c.parent_id as parent_id
-  from listings p 
-  left join categories c ON p.cat_slug = c.slug
-  where p.cat_slug = "activities" or c.slug = "activities"`;
+  const sql = `SELECT p.title, p.description, p.id, c.parent_id as parent_id
+  FROM listings p 
+  LEFT JOIN categories c ON p.cat_slug = c.slug
+ `;
 
   conn.query(sql, (err, results, fields) => {
     console.log(results);
   });
 });
-
 module.exports = router;

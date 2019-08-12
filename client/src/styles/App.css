@@ -173,3 +173,33 @@ html {
     list-style: none;
     margin-bottom: 5px;
 }
+
+/* Listing styles */
+
+.listing-nav {
+    display: flex;
+    width: 100%;
+    background-color: rgb(244, 244, 244)
+}
+
+.listing-nav a {
+    text-decoration: none;
+}
+
+#rl-tag {
+    text-align: center;
+    height: 20px;
+    width: 40px;
+    border-radius: 15px;
+    text-decoration: none;
+    margin: 10px;
+    background: white;
+}
+
+#rl-tag a {
+    text-decoration: none;
+}
+
+.post-account {
+    display: flex;
+}
