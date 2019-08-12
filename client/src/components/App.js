@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import store from "../store";
 import ListingPage from "./ListingPage";
 import { subCat } from "./Home";
+import PostingPage from "./PostingPage";
 
 export default props => {
   return (
@@ -16,6 +17,7 @@ export default props => {
       <Provider store={store}>
         <div className="page-wrapper">
           <Route exact path="/" component={Home} />
+          <Route path="/postingpage" component={PostingPage} />
           <Route path={"/listingpage/:slug"} component={ListingPage} />
         </div>
       </Provider>

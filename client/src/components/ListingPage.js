@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { actionCatagory, matchListings } from "../actions/craigslist.actions";
-
+import "font-awesome/css/font-awesome.min.css";
 export default props => {
-  const pageName = useSelector(appState => appState.listings);
+  const posts = useSelector(appState => appState.listings);
+  const slug = props.match.params.slug;
 
   useEffect(() => {
-    matchListings();
-  }, []);
-  const slug = props.match.params.slug;
+    matchListings(slug);
+  }, [slug]);
 
   return (
     <div className="h">
@@ -84,11 +84,20 @@ export default props => {
         <div className="main-listing-wrapper">
           <form>
             <input type="text" placeholder={slug} />
+            <button>
+              <i class="fa fa-search" />{" "}
+            </button>
           </form>
           <div className="posts-list-wrapper">
-            <ul>
-              <li>stuff</li>
-            </ul>
+            {posts.map(post => (
+              <ul>
+                <li>
+                  <Link key={post.id} to={"/postingpage/" + post.id}>
+                    {post.title}
+                  </Link>
+                </li>
+              </ul>
+            ))}
           </div>
         </div>
       </div>

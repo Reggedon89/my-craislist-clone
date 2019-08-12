@@ -20,33 +20,20 @@ router.get("/catagory", (req, res, next) => {
     });
     res.json(data);
   });
-  //   conn.query("SELECT name FROM categories WHERE parent_id IS NULL", function(
-  //     error,
-  //     results,
-  //     fields
-  //   ) {
-  //     console.log(results);
-  //     res.json(results);
-  //   });
-  // });
-  // router.get("/subcatagory", (req, res, next) => {
-  //   conn.query(
-  //     "SELECT name, parent_id FROM categories WHERE parent_id IS NOT NULL",
-  //     function(error, results, fields) {
-  //       console.log(results);
-  //       res.json(results);
-  //     }
-  //   );
 });
 
-router.get("/listings", (req, res, next) => {
+router.get("/listings/:slug", (req, res, next) => {
+  const slug = req.params.slug;
+
   const sql = `SELECT p.title, p.description, p.id, c.parent_id as parent_id
   FROM listings p 
   LEFT JOIN categories c ON p.cat_slug = c.slug
+  WHERE c.slug = "${slug}"
  `;
 
-  conn.query(sql, (err, results, fields) => {
+  conn.query(sql, [slug], (err, results, fields) => {
     console.log(results);
+    res.json(results);
   });
 });
 module.exports = router;
