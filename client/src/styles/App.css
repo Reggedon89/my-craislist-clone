@@ -186,6 +186,12 @@ html {
     text-decoration: none;
 }
 
+.listing-nav form {
+    margin-top: .6%;
+    width: 426px;
+
+}
+
 #rl-tag {
     text-align: center;
     height: 20px;
@@ -200,6 +206,43 @@ html {
     text-decoration: none;
 }
 
+
 .post-account {
     display: flex;
+    justify-content: flex-end;
+    width: 100%;
+
+}
+
+.post-account {
+
+    /* margin-right: 5px; */
+    /* border-left: 1px solid rgb(244, 244, 244) */
+}
+
+.post a {
+    margin-right: 10px;
+    border-right: 1px solid black;
+    padding-right: 15px;
+    height: 30px;
+}
+
+.listing-wrapper {
+    display: flex;
+    width: 30%;
+}
+
+.main-listing-wrapper {
+    length: 400px;
+
+    border: 1px solid black;
+}
+
+.main-listing-wrapper form {
+    length: 75%;
+}
+
+.listing-wrapper-wrapper {
+    display: flex;
+    width: 100%;
 }

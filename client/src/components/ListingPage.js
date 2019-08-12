@@ -12,7 +12,7 @@ export default props => {
   const slug = props.match.params.slug;
 
   return (
-    <div>
+    <div className="h">
       <nav className="listing-nav">
         <div id="rl-tag">
           <Link to="/">
@@ -41,43 +41,45 @@ export default props => {
           </div>
         </div>
       </nav>
-      <div className="listing-wrapper">
-        <div className="side-wrapper">
-          <span id="cat">{slug}</span>
-          <ul>
-            <li>
-              {" "}
-              <input type="checkbox" />
-              search titles only
-            </li>
-            <li>
-              {" "}
-              <input type="checkbox" />
-              has image
-            </li>
-            <li>
-              {" "}
-              <input type="checkbox" />
-              posted today
-            </li>
-            <li>
-              {" "}
-              <input type="checkbox" />
-              bundle duplicates
-            </li>
-            <li>
-              {" "}
-              <input type="checkbox" />
-              include nearby areas
-            </li>
-          </ul>
-          <span id="miles">MILES FROM ZIP</span>
-          <form>
-            <input type="text" placeholder="miles" />
-            <input type="text" placeholder="from zip" />
-          </form>
-          <Link to="/">reset</Link>
-          <Link to="/">update search</Link>
+      <div className="listing-wrapper-wrapper">
+        <div className="listing-wrapper">
+          <div className="side-wrapper">
+            <span id="cat">{slug}</span>
+            <ul>
+              <li>
+                {" "}
+                <input type="checkbox" />
+                search titles only
+              </li>
+              <li>
+                {" "}
+                <input type="checkbox" />
+                has image
+              </li>
+              <li>
+                {" "}
+                <input type="checkbox" />
+                posted today
+              </li>
+              <li>
+                {" "}
+                <input type="checkbox" />
+                bundle duplicates
+              </li>
+              <li>
+                {" "}
+                <input type="checkbox" />
+                include nearby areas
+              </li>
+            </ul>
+            <span id="miles">MILES FROM ZIP</span>
+            <form>
+              <input type="text" placeholder="miles" />
+              <input type="text" placeholder="from zip" />
+            </form>
+            <Link to="/">reset</Link>
+            <Link to="/">update search</Link>
+          </div>
         </div>
         <div className="main-listing-wrapper">
           <form>
