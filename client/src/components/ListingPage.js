@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { actionCatagory, matchListings } from "../actions/craigslist.actions";
 import "font-awesome/css/font-awesome.min.css";
+import Moment from "moment";
+
 export default props => {
   const posts = useSelector(appState => appState.listings);
   const slug = props.match.params.slug;
@@ -25,7 +27,7 @@ export default props => {
           </select>
           <span> > </span>
           <select>
-            <option>community</option>
+            <option>{slug}</option>
           </select>
           <span> > </span>
           <select>
@@ -34,7 +36,7 @@ export default props => {
         </form>
         <div className="post-account">
           <div className="post">
-            <Link to="/">post</Link>
+            <Link to={"/postform/" + props.match.params.slug}>post</Link>
           </div>
           <div className="account">
             <Link to="/">account</Link>
@@ -85,16 +87,17 @@ export default props => {
           <form>
             <input type="text" placeholder={slug} />
             <button>
-              <i class="fa fa-search" />{" "}
+              <i className="fa fa-search" />{" "}
             </button>
           </form>
           <div className="posts-list-wrapper">
             {posts.map(post => (
-              <ul>
+              <ul key={"post" + post.id}>
                 <li>
                   <Link key={post.id} to={"/postingpage/" + post.id}>
                     {post.title}
                   </Link>
+                  {Moment(post.time_created).fromNow()}
                 </li>
               </ul>
             ))}

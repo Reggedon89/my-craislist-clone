@@ -18,3 +18,8 @@ export function matchListings(slug) {
     });
   });
 }
+export function sendPost(title, content, slug) {
+  axios.post("/api/post", { title, content, slug }).then(resp => {
+    matchListings(slug);
+  });
+}

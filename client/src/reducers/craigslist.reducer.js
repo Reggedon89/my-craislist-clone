@@ -10,6 +10,7 @@ export default function(state = initialState, action) {
 
     case "LISTINGS":
       return { ...state, listings: action.payload };
+
     default:
       return state;
   }

@@ -264,3 +264,19 @@ html {
     text-decoration: none;
     text-transform: lowercase;
 }
+
+/* posting  */
+
+.post-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.post-input input,
+textarea {
+    width: 500px
+}
+
+textarea {
+    height: 300px;
+}

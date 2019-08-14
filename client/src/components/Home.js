@@ -23,7 +23,7 @@ export default props => {
           {catagory.map(item => (
             <div key={item.name} className="main-cat">
               <div className="main-cat-wrapper">
-                <h3>{item.name}</h3>
+                <Link to={"/listingpage/" + item.slug}>{item.name}</Link>
               </div>
               <div>
                 {item.subcat.map(sub => (

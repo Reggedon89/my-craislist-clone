@@ -28,7 +28,7 @@ router.get("/listings/:slug", (req, res, next) => {
   const sql = `SELECT p.title, p.description, p.id, c.parent_id as parent_id
   FROM listings p 
   LEFT JOIN categories c ON p.cat_slug = c.slug
-  WHERE c.slug = "${slug}"
+  WHERE c.slug = ?
  `;
 
   conn.query(sql, [slug], (err, results, fields) => {
@@ -36,4 +36,21 @@ router.get("/listings/:slug", (req, res, next) => {
     res.json(results);
   });
 });
+
+router.post("/post", (req, res, next) => {
+  const { slug, title, desciption } = req.body;
+  console.log(slug, title, desciption);
+  const getsql = ` SELECT id FROM categories WHERE slug= ?`;
+
+  conn.query(getsql, [slug], (err, results, fields) => {
+    const id = results[0].id;
+    const sql = `
+  INSERT INTO listings (title, description, cat_slug )`;
+
+    conn.query(sql, [title, desciption, cat_slug], (err, results, fields) => {
+      res.json(results);
+    });
+  });
+});
+
 module.exports = router;

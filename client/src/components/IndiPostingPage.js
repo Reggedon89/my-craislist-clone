@@ -33,7 +33,7 @@ export default props => {
         </form>
         <div className="post-account">
           <div className="post">
-            <Link to="/">post</Link>
+            <Link to={"/postform/" + props.match.params.slug}>post</Link>
           </div>
           <div className="account">
             <Link to="/">account</Link>
