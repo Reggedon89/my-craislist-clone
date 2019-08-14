@@ -36,18 +36,18 @@ router.get("/listings/:slug", (req, res, next) => {
     res.json(results);
   });
 });
-
+// WHERE slug= ?
 router.post("/post", (req, res, next) => {
-  const { slug, title, desciption } = req.body;
-  console.log(slug, title, desciption);
-  const getsql = ` SELECT id FROM categories WHERE slug= ?`;
+  const { slug, title, description } = req.body;
+  console.log(slug, title, description);
+  const getsql = ` SELECT slug FROM categories `;
 
-  conn.query(getsql, [slug], (err, results, fields) => {
-    const id = results[0].id;
+  conn.query(getsql, [slug], (geterr, getresults, getfields) => {
+    const id = getresults[0].slug;
     const sql = `
-  INSERT INTO listings (title, description, cat_slug )`;
+  INSERT INTO listings (title, description,cat_slug) VALUES (?,?,?)`;
 
-    conn.query(sql, [title, desciption, cat_slug], (err, results, fields) => {
+    conn.query(sql, [title, description, slug], (err, results, fields) => {
       res.json(results);
     });
   });

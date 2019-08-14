@@ -19,7 +19,7 @@ export default props => {
             <Route path="/" exact component={Home} />
             <Route path="/indipostingpage" component={IndiPostingPage} />
             <Route path="/postform/:slug" component={PostForm} />
-            <Route path={"/listingpage/:slug"} component={ListingPage} />
+            <Route path="/listingpage/:slug" component={ListingPage} />
           </Switch>
         </div>
       </Provider>
